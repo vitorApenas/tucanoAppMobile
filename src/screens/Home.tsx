@@ -88,21 +88,15 @@ export function Home({navigation}){
             const date = new Date();
             const aulaAtual = await api.post('/aulaAtual', {
                 turma: siglaTurma,
-                /*dia: date.getDay(),
+                dia: date.getDay(),
                 hora: date.getHours(),
-                minuto: date.getMinutes()*/
-                dia: 5,
-                hora: 8,
-                minuto: 25
+                minuto: date.getMinutes()
             });
             const nomeMateria = await api.post('/getMateria', {
                 sigla: aulaAtual.data.aulaAtual,
-                /*dia: date.getDay(),
+                dia: date.getDay(),
                 hora: date.getHours(),
-                minuto: date.getMinutes()*/
-                dia: 5,
-                hora: 8,
-                minuto: 25
+                minuto: date.getMinutes()
             });
             setImgAula(`${serverURL}iconesHorario/${aulaAtual.data.aulaAtual}.png`);
 
