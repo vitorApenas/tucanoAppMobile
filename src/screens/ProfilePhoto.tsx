@@ -113,8 +113,7 @@ export function ProfilePhoto({route, navigation}){
         },
         {
             key: 5,
-            f1: 'tuca11.png',
-            f2: 'tuca08.png'
+            f1: 'tuca11.png'
         }
     ];
     
@@ -138,7 +137,7 @@ export function ProfilePhoto({route, navigation}){
                 <FlatList
                     data={data}
                     renderItem={({item})=>(
-                        <View className="w-full flex-row justify-around mb-8" style={{height: screenWidth/3}}>
+                        <View className={item.f2 ? "w-full flex-row justify-around mb-8" : "w-full flex-row mb-8 ml-[7.5%]"} style={{height: screenWidth/3}}>
                             <TouchableOpacity
                                 onPress={()=>{
                                     setProfilePicURL(serverURL + item.f1);
@@ -153,29 +152,27 @@ export function ProfilePhoto({route, navigation}){
                                 />
                             </TouchableOpacity>
 
-                            {/*item.f2 && 
-                            
-                            */}
-                            
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    setProfilePicURL(serverURL + item.f2);
-                                    setProfilePic(item.f2);
-                                }}
-                                style={{height: screenWidth/3, width: screenWidth/3}}
-                            >
-                                <Image
-                                    source={{uri: (serverURL + item.f2)}}
-                                    className="rounded-full w-full h-full"
-                                    style={{resizeMode: 'contain'}}
-                                />
-                            </TouchableOpacity>
+                            {item.f2 && 
+                                <TouchableOpacity
+                                    onPress={()=>{
+                                        setProfilePicURL(serverURL + item.f2);
+                                        setProfilePic(item.f2);
+                                    }}
+                                    style={{height: screenWidth/3, width: screenWidth/3}}
+                                >
+                                    <Image
+                                        source={{uri: (serverURL + item.f2)}}
+                                        className="rounded-full w-full h-full"
+                                        style={{resizeMode: 'contain'}}
+                                    />
+                                </TouchableOpacity>
+                            }
                         </View>
                     )}
                 />
             </View>
             <BtnForm
-                className="mt-4"
+                className="mt-12"
                 text="CONFIRMAR"
                 erro={erroBtn}
                 onPress={()=>{

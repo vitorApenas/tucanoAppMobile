@@ -31,8 +31,7 @@ export function Settings({navigation}){
     async function logout(){
         setIsLoading(true);
         await AsyncStorage.clear();
-        navigation.navigate('login');
-        setIsLoading(false);
+        return navigation.navigate('login');
     }
 
     const [isLoading, setIsLoading] = useState<boolean>();

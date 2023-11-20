@@ -45,12 +45,9 @@ export function Horario({navigation}){
 
                 const aulaAtual = await api.post('/aulaAtual', {
                     turma: siglaTurma,
-                    /*dia: date.getDay(),
+                    dia: date.getDay(),
                     hora: date.getHours(),
-                    minuto: date.getMinutes()*/
-                    dia: 3,
-                    hora: 10,
-                    minuto: 25
+                    minuto: date.getMinutes()
                 });
 
                 setAulaAtual(aulaAtual.data.aulaAtual);

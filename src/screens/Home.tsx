@@ -53,6 +53,7 @@ export function Home({navigation}){
                 setIsFunc(false);
             }
             catch{
+                await AsyncStorage.clear();
                 return navigation.navigate('login');
             }
         };
@@ -63,9 +64,9 @@ export function Home({navigation}){
                 const asNome = await AsyncStorage.getItem('@nome');
                 setNome(asNome.split(' ')[0]);
                 setIsFunc(true);
-                
             }
             catch{
+                await AsyncStorage.clear();
                 return navigation.navigate('login');
             }
         }

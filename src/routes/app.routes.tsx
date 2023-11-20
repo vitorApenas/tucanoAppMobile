@@ -18,14 +18,10 @@ import { EditarAula } from "../screens/EditarAula";
 import { CriarPost } from "../screens/CriarPost";
 import { EditarPresencas } from "../screens/EditarPresencas";
 import { EmDesenvolvimento } from "../screens/EmDesenvolvimento";
-//import { AeP } from "../screens/AeP";
-//import { CriarAep } from "../screens/CriarAep";
-//import { NConfirmadosAep } from "../screens/NConfirmadosAep";
-//import { Email } from "../screens/Email";
 
 export function AppRoutes(){
     return(
-        <Navigator screenOptions={{headerShown: false}}>
+        <Navigator screenOptions={{headerShown: false}} initialRouteName={'home'}>
             <Screen name="login" component={Login}/>
             <Screen name="signup" component={Signup}/>
             <Screen name="profilePhoto" component={ProfilePhoto}/>
