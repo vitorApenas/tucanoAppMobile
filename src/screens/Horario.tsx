@@ -4,6 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useIsFocused } from '@react-navigation/native';
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Header } from '../components/Header';
 import { EditarHorarioField } from '../components/EditarHorarioField';
@@ -117,7 +118,7 @@ export function Horario({navigation}){
     if(isLoading) return <Loading/>
 
     if(erro.length > 0) return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Horários"
                 onPress={()=>navigation.navigate('home')}
@@ -127,11 +128,11 @@ export function Horario({navigation}){
                     {erro}
                 </Text>
             </View>
-        </View>
+        </SafeAreaView>
     );
 
     return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Horários"
                 onPress={()=>navigation.navigate('home')}
@@ -147,7 +148,7 @@ export function Horario({navigation}){
                             height: width*0.33,
                         }}
                     >
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">
                                 Matéria:
                             </Text>
@@ -155,7 +156,7 @@ export function Horario({navigation}){
                                 {aulaAtual}
                             </Text>
                         </View>
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">
                                 Professor(a):
                             </Text>
@@ -163,7 +164,7 @@ export function Horario({navigation}){
                                 {profAtual}
                             </Text>
                         </View>
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">Status do professor:</Text>
                             <View className="mt-1 ml-1">
                                 <FontAwesome
@@ -173,7 +174,7 @@ export function Horario({navigation}){
                                 />
                             </View>
                         </View>
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">
                                 Sala:
                             </Text>
@@ -191,7 +192,7 @@ export function Horario({navigation}){
                             height: width*0.33,
                         }}
                     >
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">
                                 Matéria:
                             </Text>
@@ -199,7 +200,7 @@ export function Horario({navigation}){
                                 {proxAula}
                             </Text>
                         </View>
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">
                                 Professor(a):
                             </Text>
@@ -207,7 +208,7 @@ export function Horario({navigation}){
                                 {proxProf}
                             </Text>
                         </View>
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">Status do professor:</Text>
                             <View className="mt-1 ml-1">
                                 <FontAwesome
@@ -217,7 +218,7 @@ export function Horario({navigation}){
                                 />
                             </View>
                         </View>
-                        <View className="flex-row items-center mt-[1%]">
+                        <View className="flex-row items-center mt-[1%] ml-2">
                             <Text className="text-black font-nsemibold text-base">
                                 Sala:
                             </Text>
@@ -246,6 +247,6 @@ export function Horario({navigation}){
                     </View>
                 </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
     )
 }

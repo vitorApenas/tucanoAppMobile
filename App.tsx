@@ -11,13 +11,13 @@ import {
 } from '@expo-google-fonts/nunito';
 import * as SplashScreen from 'expo-splash-screen';
 
-import {View, Text, TouchableOpacity} from 'react-native';
+import { Loading } from "./src/components/Loading";
 
 export default function App() {
 
   SplashScreen.preventAutoHideAsync();
 
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, errorFont] = useFonts({
     Nunito_400Regular,
     Nunito_500Medium,
     Nunito_600SemiBold,
@@ -36,4 +36,8 @@ export default function App() {
       </>
     );
   }
+
+  if(errorFont) alert(errorFont)
+
+  return(<Loading/>)
 }

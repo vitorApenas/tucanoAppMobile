@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 import { Header } from '../components/Header';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function EmDesenvolvimento({navigation}){
     return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Em desenvolvimento"
                 onPress={()=>navigation.navigate('home')}
@@ -14,6 +15,6 @@ export function EmDesenvolvimento({navigation}){
                     Essa funcionalidade ainda está em desenvolvimento
                 </Text>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }

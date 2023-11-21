@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useIsFocused } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import NetInfo from '@react-native-community/netinfo';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Header } from "../components/Header";
 import { Loading } from "../components/Loading";
@@ -68,12 +69,12 @@ export function EditarRefeicao({route, navigation}){
     if(isLoading) return <Loading/>
 
     return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Editar cardápio"
                 onPress={()=>{navigation.navigate('refeitorio')}}
             />
-            <View className="w-5/6 mt-[5%]">
+            <View className="w-3/4 mt-[5%]">
                 <Text className="font-nbold text-standart text-2xl">Editar cardápio</Text>
             </View>
             <InputLogin
@@ -138,6 +139,6 @@ export function EditarRefeicao({route, navigation}){
                     size={38}
                 />
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     )
 }

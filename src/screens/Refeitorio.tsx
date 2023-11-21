@@ -3,6 +3,7 @@ import { useIsFocused } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import NetInfo from '@react-native-community/netinfo';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Loading } from "../components/Loading";
 import { Header } from "../components/Header";
@@ -52,7 +53,7 @@ export function Refeitorio({navigation}){
     if(isLoading) return <Loading/>
 
     if(isFunc) return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Refeitório"
                 onPress={()=>{navigation.navigate('home')}}
@@ -124,11 +125,11 @@ export function Refeitorio({navigation}){
                     id: 3
                 })}}
             />
-        </View>
+        </SafeAreaView>
     )
     
     return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Refeitório"
                 onPress={()=>{navigation.navigate('home')}}
@@ -188,6 +189,6 @@ export function Refeitorio({navigation}){
                 }}
                 className="mt-2"
             />
-        </View>
+        </SafeAreaView>
     )
 }

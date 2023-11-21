@@ -24,7 +24,7 @@ import { EmDesenvolvimento } from "../screens/EmDesenvolvimento";
 
 export function Routes(){
     return(
-        <View className='flex-1 bg-green-500'>
+        <View className='flex-1 bg-back'>
             <NavigationContainer>
                 <AppRoutes/>
             </NavigationContainer>

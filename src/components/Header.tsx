@@ -7,18 +7,17 @@ interface Props extends TouchableOpacityProps {
 
 export function Header({title, ...rest}: Props){
     return(
-        <View className="w-full bg-[#99A0B1] h-20 flex-row items-end px-2">
+        <View className="w-full bg-[#99A0B1] flex-row items-center px-2 h-14 rounded-b-md">
             <TouchableOpacity
-                className="mb-1"
                 {...rest}
             >
                 <Feather
                     name="arrow-left"
-                    size={38}
+                    size={32}
                     color="#3A4365"
                 />
             </TouchableOpacity>
-            <Text className="font-nsemibold text-back text-3xl ml-2">
+            <Text className="font-nsemibold text-back text-xl ml-2">
                 {title}
             </Text>
         </View>

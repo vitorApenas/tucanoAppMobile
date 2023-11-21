@@ -4,6 +4,7 @@ import { View, Image, TouchableOpacity, Text, ScrollView, useWindowDimensions } 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetInfo from '@react-native-community/netinfo';
 import { FontAwesome, Feather } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Loading } from "../components/Loading";
 import { TextoPost } from "../components/TextoPost";
@@ -131,41 +132,46 @@ export function Home({navigation}){
     if(isLoading) return <Loading/>
 
     return(
-        <View className="flex-1 bg-back items-center">
-            <View className="w-full bg-[#99A0B1] flex-row items-end pb-1 pl-2" style={{height: 88}}>
-                {isFunc ? 
-                    (
-                        <View className="border-[#3A4365] border-2 rounded-full">
-                            <Image
-                                source={{uri: profilePic}}
-                                className="rounded-full h-12 w-12"
-                            />
-                        </View>
-                    )
-                :
-                    (
-                        <TouchableOpacity
-                            className="border-[#3A4365] border-2 rounded-full"
-                            onPress={()=>navigation.navigate('carteirinha')}
-                        >
-                            <Image
-                                source={{uri: profilePic}}
-                                className="rounded-full h-12 w-12"
-                            />
-                        </TouchableOpacity>
-                    )
-                }
-                <TouchableOpacity
-                    className="absolute right-3 bottom-2"
-                    onPress={()=>navigation.navigate('settings')}
-                >
-                    <Feather
-                        name="settings"
-                        size={42}
-                        color="#3A4365"
+        <SafeAreaView className="flex-1 bg-back items-center">
+            <View className="w-full bg-[#99A0B1] flex-row items-end justify-center rounded-b-md" style={{height: 66}}>
+                <View className="w-[90%] h-full flex-row items-center justify-between">
+                    {isFunc ? 
+                        (
+                            <View className="border-[#3A4365] border-2 rounded-full">
+                                <Image
+                                    source={{uri: profilePic}}
+                                    className="rounded-full h-10 w-10"
+                                />
+                            </View>
+                        )
+                    :
+                        (
+                            <TouchableOpacity
+                                className="border-[#3A4365] border-2 rounded-full"
+                                onPress={()=>navigation.navigate('carteirinha')}
+                            >
+                                <Image
+                                    source={{uri: profilePic}}
+                                    className="rounded-full h-10 w-10"
+                                />
+                            </TouchableOpacity>
+                        )
+                    }
+                    <Image
+                        source={require('../assets/Logo_tucano.png')}
+                        className="h-9 w-9"
+                        style={{resizeMode: 'contain'}}
                     />
-                </TouchableOpacity>
-
+                    <TouchableOpacity
+                        onPress={()=>navigation.navigate('settings')}
+                    >
+                        <Feather
+                            name="settings"
+                            size={36}
+                            color="#3A4365"
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
 
             <View className="w-full h-[90%] items-center">
@@ -173,14 +179,14 @@ export function Home({navigation}){
                     contentContainerStyle={{alignItems: 'center'}}
                     className="w-full h-full"
                 >
-                    <View className="mt-5 w-[85%]" key={0}>
+                    <View className="mt-5 w-[90%]" key={0}>
                         <Text className="text-standart text-lg font-nbold">
                             Bem vindo(a), {nome}!
                         </Text>
                     </View>
 
                     {!isFunc &&
-                        <View className="w-[85%] items-start mt-5 -mb-2">
+                        <View className="w-[90%] items-start mt-5 -mb-2">
                             <Text className="text-[#8087A0] text-base font-nbold">
                                 Sua aula nesse momento:
                             </Text>
@@ -212,7 +218,7 @@ export function Home({navigation}){
                                 <View 
                                     className="bg-white rounded-xl items-start justify-evenly mt-1 p-1"
                                     style={{
-                                        width: height/3.5,
+                                        width: height/3.2,
                                         height: height/9
                                     }}
                                 >
@@ -279,7 +285,7 @@ export function Home({navigation}){
                         </View>    
                     }
 
-                    <View className="w-[85%] items-start mt-5 -mb-2">
+                    <View className="w-[90%] items-start mt-5 -mb-2">
                         <Text className="text-[#8087A0] text-base font-nbold">
                             Feed
                         </Text>
@@ -288,15 +294,15 @@ export function Home({navigation}){
                     {
                         isLoadingPosts ?
                             <>
-                                <View className="mt-3 mb-5 w-[85%] bg-white h-44 rounded-xl border border-gray-300"/>
-                                <View className="mt-5 mb-5 w-[85%] bg-white h-44 rounded-xl border border-gray-300"/>
-                                <View className="mt-5 mb-5 w-[85%] bg-white h-44 rounded-xl border border-gray-300"/>
+                                <View className="mt-3 mb-5 w-[90%] bg-white h-44 rounded-xl border border-gray-300"/>
+                                <View className="mt-5 mb-5 w-[90%] bg-white h-44 rounded-xl border border-gray-300"/>
+                                <View className="mt-5 mb-5 w-[90%] bg-white h-44 rounded-xl border border-gray-300"/>
                             </>
                         :
                             <>
                                 {postFix &&
                                     <View
-                                        className="mt-5 mb-5 w-[85%] bg-[#949BB440] rounded-xl border border-gray-300 items-center"
+                                        className="mt-5 mb-5 w-[90%] bg-[#949BB440] rounded-xl border border-gray-300 items-center"
                                     >
                                         <View className="w-[95%] mt-1">
                                             <View className="flex-row justify-start items-center z-10">
@@ -323,7 +329,7 @@ export function Home({navigation}){
                                                     source={{uri: `${serverURL}postImages/${postFix.id}.${postFix.extensao}`}}
                                                     className="w-full rounded-xl mt-1"
                                                     style={{
-                                                        height: height*0.22,
+                                                        height: height*0.2,
                                                         resizeMode: 'contain',
                                                     }}
                                                 />
@@ -347,7 +353,7 @@ export function Home({navigation}){
                                     posts.map((item:typePost)=>{
                                         if(!postFix || (item.id !== postFix.id)) return(
                                             <View
-                                                className="mt-5 mb-5 w-[85%] bg-white rounded-xl border border-gray-300 items-center"
+                                                className="mt-5 mb-5 w-[90%] bg-white rounded-xl border border-gray-300 items-center"
                                                 key={item.id}
                                             >
                                                 <View className="w-[95%] mt-1">
@@ -376,7 +382,7 @@ export function Home({navigation}){
                                                             source={{uri: `${serverURL}postImages/${item.id}.${item.extensao}`}}
                                                             className="w-full rounded-xl mt-1"
                                                             style={{
-                                                                height: height*0.23,
+                                                                height: height*0.2,
                                                                 resizeMode:'contain'
                                                             }}
                                                         />
@@ -403,14 +409,14 @@ export function Home({navigation}){
                 </ScrollView>
             </View>
 
-            <View className="w-full bg-[#99A0B1] h-16 absolute bottom-0 justify-center items-center">
+            <View className="w-full bg-[#5C6480] h-16 absolute bottom-0 justify-center items-center rounded-t-lg">
                 <View className="w-5/6 flex-row justify-between items-center">
                     <TouchableOpacity
                         onPress={()=>{isFunc ? navigation.navigate('horarioFunc') : navigation.navigate('horario')}}
                     >
                         <Image
                             source={require("../assets/home/Horario_icon.png")}
-                            className="h-8 w-8"
+                            className="h-7 w-7"
                         />
                     </TouchableOpacity>
                     <View
@@ -421,7 +427,7 @@ export function Home({navigation}){
                     >
                         <Image
                             source={require("../assets/home/Cardapio_icon.png")}
-                            className="h-8 w-8"
+                            className="h-7 w-7"
                         />
                     </TouchableOpacity>
                     <View
@@ -433,7 +439,7 @@ export function Home({navigation}){
                     >
                         <Image
                             source={require("../assets/home/Home.png")}
-                            className="h-8 w-8"
+                            className="h-7 w-7"
                         />
                         <Text className="font-nbold text-white text-sm">Home</Text>
                     </TouchableOpacity>
@@ -445,7 +451,7 @@ export function Home({navigation}){
                     >
                         <Image
                             source={require("../assets/home/Biblioteca_icon.png")}
-                            className="h-8 w-8"
+                            className="h-7 w-7"
                         />
                     </TouchableOpacity>
                     <View
@@ -456,30 +462,31 @@ export function Home({navigation}){
                     >
                         <Image
                             source={require("../assets/home/A_P_icon.png")}
-                            className="h-8 w-8"
+                            className="h-7 w-7"
                         />
                     </TouchableOpacity>
                 </View>
             </View>
 
             {isFunc &&
-                <TouchableOpacity
-                    className="bg-[#3A4365] rounded-full w-16 h-16 items-center justify-center"
-                    style={{
-                        position: 'absolute',
-                        bottom: '10%',
-                        right: '8%',
-                        zIndex: 9
-                    }}
-                    onPress={()=>navigation.navigate('criarPost')}
-                >
-                    <Feather
-                        name="plus"
-                        size={38}
-                        color="#FFF"
-                    />
-                </TouchableOpacity>
+                <View className="w-full absolute top-[85%]">
+                    <TouchableOpacity
+                        className="bg-[#3A4365] rounded-full w-14 h-14 items-center justify-center"
+                        style={{
+                            position: 'absolute',
+                            right: '5%',
+                            zIndex: 9
+                        }}
+                        onPress={()=>navigation.navigate('criarPost')}
+                    >
+                        <Feather
+                            name="plus"
+                            size={32}
+                            color="#FFF"
+                        />
+                    </TouchableOpacity>
+                </View>
             }
-        </View>
+        </SafeAreaView>
     )
 }

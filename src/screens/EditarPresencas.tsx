@@ -3,6 +3,7 @@ import { View, Text, Image, TextInput, FlatList } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Loading } from '../components/Loading';
 import { Header } from '../components/Header';
@@ -75,7 +76,7 @@ export function EditarPresencas({navigation}){
     if(isLoading) return <Loading/>
 
     if(erro.length > 0) return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Professores"
                 onPress={()=>navigation.navigate('horarioFunc')}
@@ -85,11 +86,11 @@ export function EditarPresencas({navigation}){
                     {erro}
                 </Text>
             </View>
-        </View>
+        </SafeAreaView>
     );
 
     return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Professores"
                 onPress={()=>navigation.navigate('horarioFunc')}
@@ -129,6 +130,6 @@ export function EditarPresencas({navigation}){
                     />
                 )}
             />
-        </View>
+        </SafeAreaView>
     )
 }

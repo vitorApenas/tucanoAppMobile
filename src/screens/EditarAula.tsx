@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Loading } from '../components/Loading';
 import { Header } from '../components/Header';
@@ -71,7 +72,7 @@ export function EditarAula({route, navigation}){
     if(isLoading) return <Loading/>
 
     if(erro.length > 0) return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Horários"
                 onPress={()=>navigation.navigate('home')}
@@ -81,11 +82,11 @@ export function EditarAula({route, navigation}){
                     {erro}
                 </Text>
             </View>
-        </View>
+        </SafeAreaView>
     );
     
     return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Editar Aula"
                 onPress={()=>navigation.goBack()}
@@ -128,6 +129,6 @@ export function EditarAula({route, navigation}){
                     erro={erroBtn}
                     className="mt-[90%]"
                 />
-        </View>
+        </SafeAreaView>
     );
 }

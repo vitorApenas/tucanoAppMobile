@@ -101,14 +101,14 @@ export function Signup({navigation}){
     const [formFunc, setFormFunc] = useState<boolean>(false);
     const [hidePass, setHidePass] = useState<boolean>(true);
 
-    const [rm, setRm] = useState<string>('210066');
-    const [passAluno, setPassAluno] = useState<string>('vitorvitor123');
-    const [confirmPassAluno, setConfirmPassAluno] = useState<string>('vitorvitor123');
+    const [rm, setRm] = useState<string>('');
+    const [passAluno, setPassAluno] = useState<string>('');
+    const [confirmPassAluno, setConfirmPassAluno] = useState<string>('');
     const [erroAluno, setErroAluno] = useState<string>('');
 
-    const [email, setEmail] = useState<string>('nilson.anjos@etec.sp.gov.br');
-    const [passFunc, setPassFunc] = useState<string>('vitorvitor123');
-    const [confirmPassFunc, setConfirmPassFunc] = useState<string>('vitorvitor123');
+    const [email, setEmail] = useState<string>('');
+    const [passFunc, setPassFunc] = useState<string>('');
+    const [confirmPassFunc, setConfirmPassFunc] = useState<string>('');
     const [erroFunc, setErroFunc] = useState<string>('');
 
     if(isLoading) return <Loading/>

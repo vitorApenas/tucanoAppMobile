@@ -11,7 +11,7 @@ export function CarteirinhaField({label, text, ...rest}:Props){
             <Text className="font-nmedium text-standart text-base">
                 {label}
             </Text>
-            <View className="w-full h-2/3 border border-gray-500 rounded-lg justify-center p-1 pb-2">
+            <View className="w-full h-2/3 border border-gray-300 rounded-lg justify-center p-1 pb-2">
                 <Text className="font-nsemibold text-black text-lg">
                     {text}
                 </Text>

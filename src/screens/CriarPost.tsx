@@ -5,6 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetInfo from '@react-native-community/netinfo';
 import * as ImagePicker from 'expo-image-picker';
 import { customAlphabet } from "nanoid/non-secure";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Header } from "../components/Header";
 import { Loading } from '../components/Loading';
@@ -127,7 +128,7 @@ export function CriarPost({navigation}){
     if(isLoading) return <Loading/>
 
     return(
-        <View className="flex-1 bg-back items-center">
+        <SafeAreaView className="flex-1 bg-back items-center">
             <Header
                 title="Nova Postagem"
                 onPress={()=>{navigation.navigate('home')}}
@@ -202,6 +203,6 @@ export function CriarPost({navigation}){
                     Enviar item
                 </Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     );
 }
